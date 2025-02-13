@@ -14,6 +14,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Image,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { typography } from "@/constants/typography";
@@ -121,12 +122,16 @@ const Home = () => {
         { backgroundColor: theme.background, paddingTop: top },
       ]}
     >
-      <View style={styles.header}>
-        <Text
-          style={[{ color: theme.headerTitleText }, typography.headerTitle]}
-        >
-          Explore
-        </Text>
+      <View style={[styles.header]}>
+        <Image
+          source={
+            theme.isDark
+              ? require("../assets/images/light_logo.png")
+              : require("../assets/images/dark_logo.png")
+          }
+          style={styles.logo}
+          resizeMode="contain"
+        />
         <TouchableOpacity
           onPress={theme.toggleTheme}
           style={{
@@ -188,7 +193,7 @@ const Home = () => {
             style={styles.filterButton}
             onPress={() => setFilterVisible(true)}
           >
-            <Ionicons name="filter" size={20} color={theme.text} />
+            <Feather name="filter" size={20} color={theme.text} />
             <Text style={[{ color: theme.filterText }, typography.filter]}>
               {
                 translations.filters[
@@ -243,11 +248,20 @@ const Home = () => {
             style={[styles.modalContent, { backgroundColor: theme.background }]}
           >
             <View style={styles.modalHeader}>
-              <Text style={[{ color: theme.modalText }, typography.modalText]}>
-                Select Language
+              <Text
+                style={[{ color: theme.modalText }, typography.headerTitle]}
+              >
+                Languages
               </Text>
-              <TouchableOpacity onPress={() => setLanguageVisible(false)}>
-                <Ionicons name="close" size={24} color={theme.text} />
+              <TouchableOpacity
+                onPress={() => setLanguageVisible(false)}
+                style={{
+                  backgroundColor: theme.altBackground,
+                  padding: 4,
+                  borderRadius: 4,
+                }}
+              >
+                <Ionicons name="close" size={18} color={theme.capitalText} />
               </TouchableOpacity>
             </View>
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -262,12 +276,9 @@ const Home = () => {
                 >
                   <View style={styles.radioRow}>
                     <Text
-                      style={[
-                        { color: theme.modalText },
-                        typography.modalText,
-                      ]}
+                      style={[{ color: theme.modalText }, typography.modalText]}
                     >
-                      {lang.name}
+                      {lang.fullName}
                     </Text>
                     <View
                       style={[styles.radioOuter, { borderColor: theme.text }]}
@@ -301,11 +312,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 10,
   },
   searchContainer: {
     position: "relative",
     marginBottom: 16,
+    borderRadius: 4,
   },
   searchInput: {
     borderRadius: 4,
@@ -378,6 +390,10 @@ const styles = StyleSheet.create({
     height: 13,
     borderRadius: 20,
     backgroundColor: "#000",
+  },
+  logo: {
+    height: "100%",
+    width: 100,
   },
 });
 

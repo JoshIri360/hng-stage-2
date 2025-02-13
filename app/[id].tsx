@@ -155,13 +155,6 @@ const CountryDetail: React.FC = () => {
           {images.length > 0 ? (
             <ImageCarousel images={images} flagUri={flagUri} />
           ) : null}
-
-          {/*
-            New detail grid with 12 fields arranged in 3 columns (4 items each):
-            Column 1: Name, Population, Capital City, Continent
-            Column 2: Country Code, Official Name, Area, Currency
-            Column 3: Time Zone, Languages, Dialling Code, Driving Side
-          */}
           {(() => {
             const detailItems: { key: CountryDetailKey; value?: string }[] = [
               { key: "name", value: country.name?.common },

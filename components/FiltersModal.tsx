@@ -72,20 +72,30 @@ const FiltersModal = ({
           style={[styles.modalContent, { backgroundColor: theme.background }]}
         >
           <View style={styles.modalHeader}>
-            <Text style={[{ color: theme.modalText }, typography.modalText]}>
+            <Text style={[{ color: theme.modalText }, typography.headerTitle]}>
               Filters
             </Text>
-            <TouchableOpacity onPress={onClose}>
-              <Ionicons name="close" size={24} color={theme.text} />
+            <TouchableOpacity
+              onPress={onClose}
+              style={{
+                backgroundColor: theme.altBackground,
+                padding: 4,
+                borderRadius: 4,
+              }}
+            >
+              <Ionicons name="close" size={18} color={theme.capitalText} />
             </TouchableOpacity>
           </View>
 
           {/* Continent Filter */}
           <View style={styles.filterSection}>
             <TouchableOpacity
-              style={[styles.sectionHeader, {
-                marginBottom: continentsExpanded ? 10 : 0
-              }]}
+              style={[
+                styles.sectionHeader,
+                {
+                  marginBottom: continentsExpanded ? 10 : 0,
+                },
+              ]}
               onPress={() => setContinentsExpanded(!continentsExpanded)}
             >
               <Text
@@ -111,21 +121,21 @@ const FiltersModal = ({
                 >
                   <Text
                     style={[
-                        { color: theme.filterOptionText },
-                        typography.filterOption,
+                      { color: theme.filterOptionText },
+                      typography.filterOption,
                     ]}
                   >
                     {continent}
                   </Text>
-                    <Ionicons
-                      name={
-                        filters.continents.includes(continent)
-                          ? "checkbox"
-                          : "square-outline"
-                      }
-                      size={24}
-                      color={theme.text}
-                    />
+                  <Ionicons
+                    name={
+                      filters.continents.includes(continent)
+                        ? "checkbox"
+                        : "square-outline"
+                    }
+                    size={24}
+                    color={theme.text}
+                  />
                 </TouchableOpacity>
               ))}
           </View>
@@ -133,9 +143,12 @@ const FiltersModal = ({
           {/* Timezone Filter */}
           <View style={styles.filterSection}>
             <TouchableOpacity
-              style={[styles.sectionHeader, {
-                marginBottom: timezonesExpanded ? 10 : 0
-              }]}
+              style={[
+                styles.sectionHeader,
+                {
+                  marginBottom: timezonesExpanded ? 10 : 0,
+                },
+              ]}
               onPress={() => setTimezonesExpanded(!timezonesExpanded)}
             >
               <Text
@@ -161,21 +174,21 @@ const FiltersModal = ({
                 >
                   <Text
                     style={[
-                        { color: theme.filterOptionText },
-                        typography.filterOption,
+                      { color: theme.filterOptionText },
+                      typography.filterOption,
                     ]}
                   >
                     {utcToGmt(timezone)}
                   </Text>
-                    <Ionicons
-                      name={
-                        filters.timezones.includes(timezone)
-                          ? "checkbox"
-                          : "square-outline"
-                      }
-                      size={24}
-                      color={theme.text}
-                    />
+                  <Ionicons
+                    name={
+                      filters.timezones.includes(timezone)
+                        ? "checkbox"
+                        : "square-outline"
+                    }
+                    size={24}
+                    color={theme.text}
+                  />
                 </TouchableOpacity>
               ))}
           </View>
@@ -183,16 +196,23 @@ const FiltersModal = ({
           {(continentsExpanded || timezonesExpanded) && (
             <View style={styles.buttonRow}>
               <TouchableOpacity
-                style={[styles.button, { borderWidth: 1, borderColor: theme.text, flex: 1 }]}
+                style={[
+                  styles.button,
+                  { borderWidth: 1, borderColor: theme.text, flex: 1 },
+                ]}
                 onPress={() => setFilters({ continents: [], timezones: [] })}
               >
-                <Text style={[{ color: theme.text }, typography.countryName]}>Reset</Text>
+                <Text style={[{ color: theme.text }, typography.countryName]}>
+                  Reset
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.button, { backgroundColor: "#FF6C00", flex: 3 }]}
                 onPress={onClose}
               >
-                <Text style={[{ color: "white" }, typography.countryName]}>Show Results</Text>
+                <Text style={[{ color: "white" }, typography.countryName]}>
+                  Show Results
+                </Text>
               </TouchableOpacity>
             </View>
           )}
