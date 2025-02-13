@@ -1,20 +1,22 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { useFonts } from "expo-font";
+import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect } from "react";
+import "react-native-reanimated";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { ThemeProvider, useTheme } from "@/components/ThemeContext";
+import { View } from "react-native";
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const { theme } = useTheme();
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    "Axiforma-200": require("../assets/fonts/Axiforma-200.ttf"),
+    "Axiforma-300": require("../assets/fonts/Axiforma-300.ttf"),
+    "Axiforma-400": require("../assets/fonts/Axiforma-400.ttf"),
+    "Axiforma-500": require("../assets/fonts/Axiforma-500.ttf"),
+    "Axiforma-700": require("../assets/fonts/Axiforma-700.ttf"),
   });
 
   useEffect(() => {
@@ -28,12 +30,14 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <View style={{ flex: 1, backgroundColor: theme.background }}>
+      <ThemeProvider>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}
+        />
+      </ThemeProvider>
+    </View>
   );
 }
