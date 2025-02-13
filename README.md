@@ -7,7 +7,7 @@
 
 **Advanced country exploration app with dynamic maps, multilingual support, and intelligent data visualization**
 
-https://github.com/user-attachments/assets/df7b0b5f-79d1-4302-9540-ffa1f44e8370
+https://github.com/user-attachments/assets/46ea91d3-b399-401b-9cad-01d0bb22b72b
 
 ## 🚀 Supercharged Features
 
@@ -87,7 +87,7 @@ npx expo start --clear
 ## 📸 App Preview
 | Light Mode | Dark Mode | Map View |
 |------------|-----------|----------|
-| ![Light](https://github.com/user-attachments/assets/34b199dd-5543-4e62-8610-e264f8341ec1) | ![Dark](https://github.com/user-attachments/assets/f8a83ee6-d0bb-4f49-a600-93442e91ef4f) | ![Map](https://github.com/user-attachments/assets/1bdd7ed9-5176-4bfa-b98d-56c7fcf90ce4) |
+| ![Light](https://github.com/user-attachments/assets/fc1da452-1ab2-45f9-8a69-dbb4d3b4f95b) | ![Dark](https://github.com/user-attachments/assets/f79745a0-4406-42ef-b8c1-44b55de3d872) | ![Map](https://github.com/user-attachments/assets/956725cb-5350-411b-89be-fcf6635f2616) |
 
 
 ## 📸 UI Deep Dive
