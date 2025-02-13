@@ -1,6 +1,6 @@
 # 🌍 Country Explorer Pro+
 
-[![React Native](https://img.shields.io/badge/React_Native-0.73-blue?logo=react)](https://reactnative.dev/)
+[![React Native](https://img.shields.io/badge/React_Native-0.76-blue?logo=react)](https://reactnative.dev/)
 [![Country API](https://img.shields.io/badge/REST_Countries-v3.1-green)](https://restcountries.com)
 [![Google Maps](https://img.shields.io/badge/Google_Maps-Static_API-red)](https://developers.google.com/maps)
 [![i18n Ready](https://img.shields.io/badge/i18n-5_Languages-orange)]()
