@@ -38,6 +38,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "86ae721a-f754-4257-8a4f-34413c05b5a6"
+      }
+    },
+    "owner": "aideloje"
   }
 }
